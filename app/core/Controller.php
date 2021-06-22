@@ -6,6 +6,13 @@
         {
             require_once '../app/views/' .$view. '.php';
         }
+
+        //Method untuk menjalankan model yang menyimpan data
+        public function model($model)
+        {
+            require_once '../app/models/' .$model. '.php';
+            return new $model;
+        }
   
     }
 ?>

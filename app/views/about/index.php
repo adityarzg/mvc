@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="card" style="width: 18rem;">
+    <div class="card mt-3" style="width: 18rem;">
     <img src="<?= BASEURL ?>/img/robot.jpg" class="card-img-top" alt="...">
     <div class="card-body">
     <h5 class="card-title">My Profile</h5>
