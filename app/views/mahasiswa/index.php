@@ -7,19 +7,17 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Nim</th>
                         <th scope="col">Nama</th>
-                        <th scope="col">Jurusan</th>
+                        <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach($data['mhs'] as $mhs) : ?>
-                    <tr>
-                        <th><?= $mhs['nim'] ?></th>
-                        <td><?= $mhs['nama']?></td>
-                        <td><?= $mhs['jurusan']?></td>
-                    </tr>
-                <?php endforeach ?>
+                    <?php foreach ($data['mhs'] as $mhs) : ?>
+                        <tr>
+                            <th><?= $mhs['nama'] ?></th>
+                            <th><a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['nim']; ?>" style="text-decoration: none;" class="badge rounded-pill bg-primary">Detail</a></th>
+                        </tr>
+                    <?php endforeach ?>
                 </tbody>
             </table>
 
