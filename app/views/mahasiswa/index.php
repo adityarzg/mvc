@@ -15,6 +15,17 @@
                 Tambah Data
             </button>
 
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <form action="<?= BASEURL; ?>/mahasiswa/cari" method="POST">
+                        <div class="input-group mt-3">
+                            <input type="text" class="form-control" placeholder="Cari Mahasiswa.." name="keyword" id="keyword" autocomplete="off">
+                            <button class="btn btn-primary" type="submit" id="tombolCari">Cari</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
             <table class="table mt-2">
                 <thead>
                     <tr>
@@ -31,7 +42,7 @@
                             <th><?= $mhs['nama'] ?></th>
                             <th>
                                 <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['nim']; ?>" style="text-decoration: none;" class="badge rounded-pill bg-primary">Detail</a>
-                                <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['nim']; ?>" style="text-decoration: none;" class="badge rounded-pill bg-success tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-nim="<?= $mhs['nim']?>">Edit</a>
+                                <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['nim']; ?>" style="text-decoration: none;" class="badge rounded-pill bg-success tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-nim="<?= $mhs['nim'] ?>">Edit</a>
                                 <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['nim']; ?>" style="text-decoration: none;" class="badge rounded-pill bg-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')">Hapus</a>
                             </th>
                         </tr>
