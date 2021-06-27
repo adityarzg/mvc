@@ -12,7 +12,7 @@
 
         public function getAllMahasiswa()
         {
-           $this->db->query('SELECT * FROM ' . $this->table );
+           $this->db->query('SELECT * FROM ' . $this->table . ' ORDER BY NIM');
            return $this->db->resultSet();
         }
 
@@ -40,6 +40,19 @@
             $query = "DELETE FROM mahasiswa WHERE nim = :nim";
             $this->db->query($query);
             $this->db->bind('nim', $nim);
+
+            $this->db->execute();
+            return $this->db->rowCount();
+        }
+
+        public function ubahDataMahasiswa($data)
+        {
+            $query = "UPDATE mahasiswa SET nim = :nim, nama = :nama, jurusan = :jurusan WHERE id = :id";
+            $this->db->query($query);
+            $this->db->bind('id', $data['id']);
+            $this->db->bind('nim', $data['nim']);
+            $this->db->bind('nama', $data['nama']);
+            $this->db->bind('jurusan', $data['jurusan']);
 
             $this->db->execute();
             return $this->db->rowCount();

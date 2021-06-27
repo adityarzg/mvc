@@ -11,7 +11,7 @@
                 </div>
             </div>
 
-            <button type="button" class="btn btn-sm btn-success mt-2" data-bs-toggle="modal" data-bs-target="#formModal">
+            <button type="button" class="btn btn-sm btn-success mt-2 tombolTambahData" data-bs-toggle="modal" data-bs-target="#formModal">
                 Tambah Data
             </button>
 
@@ -29,7 +29,11 @@
                         <tr>
                             <th><?= $no++ ?></th>
                             <th><?= $mhs['nama'] ?></th>
-                            <th><a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['nim']; ?>" style="text-decoration: none;" class="badge rounded-pill bg-primary">Detail</a> <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['nim']; ?>" style="text-decoration: none;" class="badge rounded-pill bg-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')">Hapus</a></th>
+                            <th>
+                                <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['nim']; ?>" style="text-decoration: none;" class="badge rounded-pill bg-primary">Detail</a>
+                                <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['nim']; ?>" style="text-decoration: none;" class="badge rounded-pill bg-success tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-nim="<?= $mhs['nim']?>">Edit</a>
+                                <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['nim']; ?>" style="text-decoration: none;" class="badge rounded-pill bg-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')">Hapus</a>
+                            </th>
                         </tr>
                     <?php endforeach ?>
                 </tbody>
@@ -45,11 +49,12 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="judulModal">Tambah Data Mahasiswa</h5>
+                <h5 class="modal-title" id="judulModalUtama">Tambah Data Mahasiswa</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="POST">
+                    <input type="hidden" name="id" id="id">
                     <div class="mb-3">
                         <label for="nim" class="form-label">NIM</label>
                         <input type="number" class="form-control" id="nim" name="nim">
@@ -60,7 +65,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="jurusan" class="form-label">Jurusan</label>
-                        <select class="form-select" aria-label="jurusan" name="jurusan">
+                        <select class="form-select" aria-label="jurusan" id="jurusan" name="jurusan">
                             <option selected></option>
                             <option value="Teknik Informatika">Teknik Informatika</option>
                             <option value="Sistem Informasi">Sistem Informasi</option>
